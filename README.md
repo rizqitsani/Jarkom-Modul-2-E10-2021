@@ -225,15 +225,17 @@ Setelah itu terdapat subdomain mecha.franky.yyy.com dengan alias www.mecha.frank
 
 Pada enies lobby tambahkan line baru pada file franky.e10.com
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2012.png)
+![image](https://user-images.githubusercontent.com/65166398/139536758-fc0fcd61-a1d8-4665-882d-39bf35436f26.png)
+
 
 Lalu tambahkan pada water7 named local conf zone delegasi seperti dibawah
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2013.png)
+![image](https://user-images.githubusercontent.com/65166398/139536818-14139b57-fa2f-4ef9-9a5a-7686fc58e488.png)
 
 Buka loguetown dan jalankan ping **www.mecha.franky.yyy.com**
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2014.png)
+![image](https://user-images.githubusercontent.com/65166398/139536799-17fdc286-def5-4df4-be30-7cf4dc2565e6.png)
+
 
 ## Soal 7
 
@@ -245,11 +247,13 @@ Untuk memperlancar komunikasi Luffy dan rekannya, dibuatkan subdomain melalui Wa
 
 Pada water7 [mecha.franky.e10.com](http://mecha.franky.e10.com) tambahkan 2 line baru
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2015.png)
+![image](https://user-images.githubusercontent.com/65166398/139536876-71ab1bf7-3422-4836-8135-49ed3cad9008.png)
+
 
 Ping dari logue town
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2016.png)
+![image](https://user-images.githubusercontent.com/65166398/139537021-6d015d63-8e38-4902-a86c-a64e9462dd73.png)
+
 
 ## Soal 8
 
@@ -274,7 +278,7 @@ unzip super.franky.zip
 
 Konfigurasikan [franky.e10.com](http://franky.e10.com) pada enies lobby seperti  berikut
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2017.png)
+![image](https://user-images.githubusercontent.com/65166398/139537044-37d571da-b05c-4700-b8ac-2f1c5f617021.png)
 
 Install apache2 dan php di water7
 
@@ -282,7 +286,8 @@ Buka node skypie
 
 Copy `/etc/apache2/sites-available/000-default.conf` ke folder webserver dengan nama file `franky.e10.com.conf` nano dan edit isinya sesuai permintaan
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2018.png)
+![image](https://user-images.githubusercontent.com/65166398/139537078-b66b8a8f-e6a4-4dce-af8b-9e3a4e540ee1.png)
+
 
 Setelah itu copykan file itu lagi ke direktori `cp webserver/franky.e10.com.conf /etc/apache2/sites-available/franky.e10.com.conf`
 jangan lupa untuk aktifkan konfigurasi
@@ -297,13 +302,15 @@ Coba dari logue town
 
 `lynx www.franky.e10.com`
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2019.png)
+![image](https://user-images.githubusercontent.com/65166398/139537096-f8556d5f-a512-430b-9f1a-1e8f59ccd81a.png)
+
 
 Loguetown sudah berhasil masuk tetapi belum ada file apa-apa copy file franky yang sudah didownload kedalam folder `/var/www/franky.e10.com`
 
 Coba lynx lagi ke franky.e10.com
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2020.png)
+![image](https://user-images.githubusercontent.com/65166398/139537107-7ec44619-b26c-41a8-9dbd-d2e22f171e18.png)
+
 
 ## Soal 9
 
@@ -315,7 +322,8 @@ Setelah itu, Luffy juga membutuhkan agar url www.franky.yyy.com/index.php/home d
 
 Buka folder webserver di skypie dan tambahkan alias pada conf
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2021.png)
+![image](https://user-images.githubusercontent.com/65166398/139537158-aaf54b59-8185-4176-a8a0-c96f690b05b8.png)
+
 
 Jangan lupa copy kan lagi ke
 
@@ -325,9 +333,11 @@ Jangan lupa untuk restart server apache
 
 Sekarang buka loguetown dan lakukan lynx ke yang diminta
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2022.png)
+![image](https://user-images.githubusercontent.com/65166398/139537218-269484a6-1b66-4d15-897f-2db9916df559.png)
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2023.png)
+
+![image](https://user-images.githubusercontent.com/65166398/139537230-85dc5c79-a221-4dc7-8c90-b0a44cbefe16.png)
+
 
 ## Soal 10
 
@@ -339,7 +349,8 @@ Setelah itu, pada subdomain www.super.franky.yyy.com, Luffy membutuhkan penyimpa
 
 Masuk folder webserver pada skypie lagi dan copy file franky.e10.com.conf menjadi `[super.franky.e10.com](http://super.franky.e10.com)` isi seperti berikut
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2024.png)
+![image](https://user-images.githubusercontent.com/65166398/139537252-19681e25-4efb-4dba-86a8-f8420699adfa.png)
+
 
 Lakukan cp [super.franky.e10.com](http://super.franky.e10.com) ke `/etc/apache2/sites-available/super.franky.e10.com.conf` jangan lupa mkdir folder tersebut sebelumnya
 
@@ -347,15 +358,18 @@ cp webserver/super.franky.e10.com.conf `/etc/apache2/sites-available/`
 
 Lalu `a2ensite .super.franky.e10.com.conf` dan restart server apachenya
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2025.png)
+![image](https://user-images.githubusercontent.com/65166398/139537268-f4a471a4-436d-4b50-8530-2c2a5478ec03.png)
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2026.png)
+
+![image](https://user-images.githubusercontent.com/65166398/139537278-5ce53ffb-5211-4095-8546-5e6061f5dd79.png)
+
 
 Jangan lupa untuk copy file yang diminta ke var/www/super.franky.e10.com
 
 Lynx lagi dari loguetown
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2027.png)
+![image](https://user-images.githubusercontent.com/65166398/139537292-b4af8b1b-ac22-4eac-b99f-a5ebe5fd92b6.png)
+
 
 ## Soal 11
 
@@ -368,8 +382,18 @@ Buka lagi folder webserver pada skypie edit dan lalu nanti copy seperti sebelum-
 
 `super.franky.e10.com.conf`
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2028.png)
+![image](https://user-images.githubusercontent.com/65166398/139537308-14f22bb8-498c-465e-b88d-2ede34c5bde7.png)
+
 
 Save, copy, restart apache
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2029.png)
+![image](https://user-images.githubusercontent.com/65166398/139537320-07ba712c-59b4-47b8-a1a3-5b0af76d5066.png)
+
+
+
+
+
+
+# Kendala 
+1. Jenis soal membuat pembagian kerja agak sulit
+2. Waktu praktikum agak kurang dibanding panjang soal
