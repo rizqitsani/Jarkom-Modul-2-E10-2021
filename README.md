@@ -388,7 +388,136 @@ Save, copy, restart apache
 
 ![image](https://user-images.githubusercontent.com/65166398/139537320-07ba712c-59b4-47b8-a1a3-5b0af76d5066.png)
 
+## Soal 12
 
+### Soal
+Tidak hanya itu, Luffy juga menyiapkan error file 404.html pada folder /error untuk mengganti error kode pada apache
+
+### Jawaban
+
+di node skypie edit super.franky.e10.com.conf dan tambahkan line berikut
+![image](https://user-images.githubusercontent.com/77628684/139558958-6a679daa-e326-4aa9-9cbe-8743ee891c22.png)
+setelah itu coba lynx dari loguetown dengan akhiran asal
+![image](https://user-images.githubusercontent.com/77628684/139558971-428bc73c-db45-4814-9ca9-a93b3e3911bf.png)
+
+
+## Soal 13
+
+### Soal
+Luffy juga meminta Nami untuk dibuatkan konfigurasi virtual host. Virtual host ini bertujuan untuk dapat mengakses file asset www.super.franky.yyy.com/public/js menjadi www.super.franky.yyy.com/js
+
+### Jawaban
+
+di node skypie edit super.franky.e10.com.conf dan tambahkan line berikut 
+
+![image](https://user-images.githubusercontent.com/77628684/139558982-3862716f-8acf-41f7-8f6e-0934d4fecb16.png)
+
+restart dan lalu coba dari loguetown
+
+![image](https://user-images.githubusercontent.com/77628684/139558990-62b9b31f-a093-4d6a-95ef-7629ca3eca7c.png)
+
+
+## Soal 14
+
+### Soal
+Dan Luffy meminta untuk web www.general.mecha.franky.yyy.com hanya bisa diakses dengan port 15000 dan port 15500
+
+### Jawaban
+
+di skypie buat config baru general.mecha.e10.com-15000.conf
+
+![image](https://user-images.githubusercontent.com/77628684/139558996-ddd8d362-1b3f-4dc2-adea-bc05cb0facd4.png)
+
+buat juga copyan ini untuk 15500 config. (2 2 nya config masukin ke sites-available kalo udah)
+tambah listen port pada `/etc/apache2/ports.conf`
+
+![image](https://user-images.githubusercontent.com/77628684/139559005-eec71b00-049c-4d94-b291-2bb7c71bad63.png)
+
+a2ensite kedua config baru tersebut lalu restart ApAcHeNyA.
+jgn lupa copy file mecha yang didownload kedalam var/www
+`lynx [http://www.general.mecha.franky.e10.com:15000/](http://www.general.mecha.franky.e10.com:15000/)`
+`lynx [http://www.general.mecha.franky.e10.com:15500/](http://www.general.mecha.franky.e10.com:15000/)`
+
+![image](https://user-images.githubusercontent.com/77628684/139559011-caf12831-828a-4573-9035-0853ad836873.png)
+
+
+## Soal 15
+
+### Soal
+dengan autentikasi username luffy dan password onepiece dan file di /var/www/general.mecha.franky.yyy
+
+### Jawaban
+
+bikin password di skypie buat apache2
+REFERENSI : [https://httpd.apache.org/docs/2.4/programs/htpasswd.html](https://httpd.apache.org/docs/2.4/programs/htpasswd.html)
+`htpasswd -b -c /etc/apache2/.htpasswd luffy onepiece`
+lalu edit config general mecha 15000 dan 15500
+
+![image](https://user-images.githubusercontent.com/77628684/139559022-56b748b5-2c78-442b-8631-4440687eb77e.png)
+
+restart apache dan coba dari loguetown
+akan keluar permintaan inputan sbb
+
+![image](https://user-images.githubusercontent.com/77628684/139559025-113b2386-8d90-4a2c-829c-b790da6ec1ba.png)
+
+masukkan username luffy enter lalu masukan password onepice bam!
+kebuka deh
+
+![image](https://user-images.githubusercontent.com/77628684/139559034-5a0bd8ef-cbbc-48c5-9a1f-608be313f78a.png)
+
+
+## Soal 16
+
+### Soal
+ Dan setiap kali mengakses IP Skypie akan dialihkan secara otomatis ke www.franky.yyy.com
+
+### Jawaban
+
+buka node Skypie
+kita akan menggunakan rewrite pada apache
+`a2enmod rewrite`
+nano /var/www/franky.e10.com/.htaccess [ini gaada discript] isi seperti berikut
+
+![image](https://user-images.githubusercontent.com/77628684/139559045-9e61a05a-fcd7-45c7-af24-e54240242d82.png)
+
+```
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^10\.34\.2\.4$
+RewriteRule ^(.*)$ http://www.franky.e10.com/$1 [L,R=301]
+```
+lalu rubah isi default /etc/apache2/sites-available/000-default.conf menjadi
+![image](https://user-images.githubusercontent.com/77628684/139559052-41fcae70-ee10-46ea-9f13-b556ff6cd256.png)
+
+save, restart test dari loguetown
+
+![image](https://user-images.githubusercontent.com/77628684/139559064-33b5e82a-7cac-47f8-9a9c-926a019e9e86.png)
+
+## Soal 17
+
+### Soal
+Dikarenakan Franky juga ingin mengajak temannya untuk dapat menghubunginya melalui website www.super.franky.yyy.com, dan dikarenakan pengunjung web server pasti akan bingung dengan randomnya images yang ada, maka Franky juga meminta untuk mengganti request gambar yang memiliki substring “franky” akan diarahkan menuju franky.png. Maka bantulah Luffy untuk membuat konfigurasi dns dan web server ini!
+
+### Jawaban
+
+pada skypie
+`nano /var/www/super.franky.e01.com/.htaccess`
+
+```
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} !\bfranky.png\b
+RewriteRule franky http://super.franky.e10.com/public/images/franky.png$1 [L,R=301]
+```
+lalu ganti config pada sites-available/super.franky dengan menambah AllowOverride All
+![image](https://user-images.githubusercontent.com/77628684/139559078-2737d320-edaf-4bfb-ab7c-cd0315307308.png)
+
+kalo sudah save lalu jangan lupa
+`a2enmod rewrite`
+dan juga jangan lupa restart apache
+lalu coba di loguetown lynx superfranky dengan belakangan tulisan asal yang memiliki substring "franky" didalamnya
+
+![image](https://user-images.githubusercontent.com/77628684/139559081-df08e0e1-9ea1-4cff-9e0c-0ad7b7f63070.png)
 
 
 
