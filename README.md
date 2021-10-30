@@ -96,6 +96,8 @@
     cp -r Praktikum-Modul-2-Jarkom-main/franky /var/www/franky.e10.com
     cp -r Praktikum-Modul-2-Jarkom-main/super.franky /var/www/super.franky.e10.com
     cp -r Praktikum-Modul-2-Jarkom-main/general.mecha.franky /var/www/general.mecha.franky.e10.com
+    
+    ## untuk nomor 16-17 ada tambahan command tp gak ditaro di script
     ```
     
 - Skypie [Pertama Kali aja]
