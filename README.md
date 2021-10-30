@@ -118,7 +118,8 @@ EniesLobby akan dijadikan sebagai DNS Master, Water7 akan dijadikan DNS Slave, d
 
 ### Jawaban
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled.png)
+![image](https://user-images.githubusercontent.com/77628684/139558832-786fc41c-23b4-4c9c-8565-8e17cb7a7cba.png)
+
 
 Tunjukkin Node yang udah dibuat
 
@@ -135,7 +136,7 @@ EniesLobby
 
 lakukan `nano named.conf.local` untuk mengedit
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%201.png)
+![image](https://user-images.githubusercontent.com/77628684/139558837-1726fcbf-c23b-4da6-a97c-f0ac6ee20a0f.png)
 
 `cp named.conf.local /etc/bind/named.conf.local`
 
@@ -149,11 +150,11 @@ zone "franky.e10.com" {
 };
 ```
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%202.png)
+![image](https://user-images.githubusercontent.com/77628684/139558846-3154f06d-1b2f-45bb-b6ab-8443e1233ef3.png)
 
 buka dblocal dan copy menggunakan `cp` ke root folder `franky.e10.com` edit isinya seperti berikut lalu copy ke `/etc/binc/kaizoku/franky.e10.com`
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%203.png)
+![image](https://user-images.githubusercontent.com/77628684/139558852-55a1a741-14db-493e-a63d-bd509ea6a1ba.png)
 
 lakukan `service bind9 restart` pada kedua node
 
@@ -161,7 +162,7 @@ buka node loguetown jangan lupa ganti nameserver pada `/etc/resolv.conf` menjadi
 
 lalu lakukan `ping [www.franky.e10.com](http://www.franky.e10.com)` pada loguetown
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%204.png)
+![image](https://user-images.githubusercontent.com/77628684/139558856-312f5a40-d95e-4541-b496-1337133efb07.png)
 
 ## Soal 3
 
@@ -172,13 +173,13 @@ Setelah itu buat subdomain super.franky.yyy.com dengan alias www.super.franky.yy
 
 Buka lagi `/etc/bind/kaizoku/franky.e10.com` pada enieslobby dan tambahkan 2 line baru
     
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%205.png)
+![image](https://user-images.githubusercontent.com/77628684/139558858-823965cf-0a10-4f16-8c2e-d316f14eebe8.png)
 
 Restart bind9 nya
 
 Coba ping dari logue town domain barunya
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%206.png)
+![image](https://user-images.githubusercontent.com/77628684/139558862-1d3226a3-9bfe-447e-842e-d42d6f0e7524.png)
 
 ## Soal 4
 
@@ -189,17 +190,17 @@ Buat juga reverse domain untuk domain utama
 
 declare di named.conf.local pada enieslobby zone baru yaitu `2.34.10.in-addr.ara` lalu copy lagi ke etc/bind/named.conf.local
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%207.png)
+![image](https://user-images.githubusercontent.com/77628684/139558869-62b43c30-0e55-472a-b61b-e0e0e0ac5658.png)
 
 setelah itu buat file untuk dicopykan ke `/etc/bind/kaizoku/2.34.10.in-addr.arp` yang berisi
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%208.png)
+![image](https://user-images.githubusercontent.com/77628684/139558873-795d1213-8b13-49d2-8852-6b190b3dbe33.png)
 
 restart bind9 service
 
 cek di loguetown
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%209.png)
+![image](https://user-images.githubusercontent.com/77628684/139558876-963a5ddb-3970-48c5-8bf5-18d09d162d9f.png)
 
 ## Soal 5
 
@@ -210,9 +211,7 @@ Supaya tetap bisa menghubungi Franky jika server EniesLobby rusak, maka buat Wat
 
 Pada nomor 2 sudah kita buat dns slave untuk water7 tinggal kita test matikan enieslobby dan coba ping ke franky lagi jika tidak bisa jangan lupa tambahkan nameserver water7 pada loguetown
 
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2010.png)
-
-![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20a/cd5184bfbff4be1a493c893912d0dd2/Untitled%2011.png)
+![image](https://user-images.githubusercontent.com/77628684/139558882-76a00d1b-dc20-4573-9f2d-dcdf8b2dfbef.png)
 
 
 ## Soal 6
