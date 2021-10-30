@@ -213,3 +213,163 @@ Pada nomor 2 sudah kita buat dns slave untuk water7 tinggal kita test matikan en
 ![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2010.png)
 
 ![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20a/cd5184bfbff4be1a493c893912d0dd2/Untitled%2011.png)
+
+
+## Soal 6
+
+### Soal
+
+Setelah itu terdapat subdomain mecha.franky.yyy.com dengan alias www.mecha.franky.yyy.com yang didelegasikan dari EniesLobby ke Water7 dengan IP menuju ke Skypie dalam folder sunnygo
+
+### Jawaban
+
+Pada enies lobby tambahkan line baru pada file franky.e10.com
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2012.png)
+
+Lalu tambahkan pada water7 named local conf zone delegasi seperti dibawah
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2013.png)
+
+Buka loguetown dan jalankan ping **www.mecha.franky.yyy.com**
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2014.png)
+
+## Soal 7
+
+### Soal
+
+Untuk memperlancar komunikasi Luffy dan rekannya, dibuatkan subdomain melalui Water7 dengan nama general.mecha.franky.yyy.com dengan alias www.general.mecha.franky.yyy.com yang mengarah ke Skypie
+
+### Jawaban
+
+Pada water7 [mecha.franky.e10.com](http://mecha.franky.e10.com) tambahkan 2 line baru
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2015.png)
+
+Ping dari logue town
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2016.png)
+
+## Soal 8
+
+### Soal
+
+Setelah melakukan konfigurasi server, maka dilakukan konfigurasi Webserver. Pertama dengan webserver www.franky.yyy.com. Pertama, luffy membutuhkan webserver dengan DocumentRoot pada /var/www/franky.yyy.com
+
+### Jawaban
+
+Taruh file yang dibutuhkan dalam skypie
+
+```python
+apt-get install wget -y
+apt-get install unzip -y
+wget https://github.com/FeinardSlim/Praktikum-Modul-2-Jarkom/archive/refs/heads/main.zip
+unzip main.zip
+cd Praktikum-Modul-2-Jarkom-main/
+unzip franky.zip
+unzip general.mecha.franky.zip
+unzip super.franky.zip
+```
+
+Konfigurasikan [franky.e10.com](http://franky.e10.com) pada enies lobby seperti  berikut
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2017.png)
+
+Install apache2 dan php di water7
+
+Buka node skypie
+
+Copy `/etc/apache2/sites-available/000-default.conf` ke folder webserver dengan nama file `franky.e10.com.conf` nano dan edit isinya sesuai permintaan
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2018.png)
+
+Setelah itu copykan file itu lagi ke direktori `cp webserver/franky.e10.com.conf /etc/apache2/sites-available/franky.e10.com.conf`
+jangan lupa untuk aktifkan konfigurasi
+
+`a2ensite [franky.e10.com](http://franky.e10.com/)`
+
+Lalu restart apachenya
+
+`service apache2 restart`
+
+Coba dari logue town
+
+`lynx www.franky.e10.com`
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2019.png)
+
+Loguetown sudah berhasil masuk tetapi belum ada file apa-apa copy file franky yang sudah didownload kedalam folder `/var/www/franky.e10.com`
+
+Coba lynx lagi ke franky.e10.com
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2020.png)
+
+## Soal 9
+
+### Soal
+
+Setelah itu, Luffy juga membutuhkan agar url www.franky.yyy.com/index.php/home dapat menjadi menjadi www.franky.yyy.com/home
+
+### Jawaban
+
+Buka folder webserver di skypie dan tambahkan alias pada conf
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2021.png)
+
+Jangan lupa copy kan lagi ke
+
+`cp webserver/franky.e10.com.conf /etc/apache2/sites-available/franky.e10.com.conf`
+
+Jangan lupa untuk restart server apache
+
+Sekarang buka loguetown dan lakukan lynx ke yang diminta
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2022.png)
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2023.png)
+
+## Soal 10
+
+### Soal
+
+Setelah itu, pada subdomain www.super.franky.yyy.com, Luffy membutuhkan penyimpanan aset yang memiliki DocumentRoot pada /var/www/super.franky.yyy.com
+
+### Jawaban
+
+Masuk folder webserver pada skypie lagi dan copy file franky.e10.com.conf menjadi `[super.franky.e10.com](http://super.franky.e10.com)` isi seperti berikut
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2024.png)
+
+Lakukan cp [super.franky.e10.com](http://super.franky.e10.com) ke `/etc/apache2/sites-available/super.franky.e10.com.conf` jangan lupa mkdir folder tersebut sebelumnya
+
+cp webserver/super.franky.e10.com.conf `/etc/apache2/sites-available/`
+
+Lalu `a2ensite .super.franky.e10.com.conf` dan restart server apachenya
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2025.png)
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2026.png)
+
+Jangan lupa untuk copy file yang diminta ke var/www/super.franky.e10.com
+
+Lynx lagi dari loguetown
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2027.png)
+
+## Soal 11
+
+### Soal
+Akan tetapi, pada folder /public, Luffy ingin hanya dapat melakukan directory listing saja
+
+### Jawaban
+
+Buka lagi folder webserver pada skypie edit dan lalu nanti copy seperti sebelum-sebelumnya
+
+`super.franky.e10.com.conf`
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2028.png)
+
+Save, copy, restart apache
+
+![Untitled](Buat%20Lapres%20Shift%202%20Jarkom%20acd5184bfbff4be1a493c893912d0dd2/Untitled%2029.png)
